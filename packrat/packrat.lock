@@ -80,10 +80,14 @@ Version: 0.4.8-1
 Hash: 6ad605ba7b4b476d84be6632393f5765
 
 Package: rintrojs
-Source: CRAN
-Version: 0.1.0
-Hash: 30671640e91950ec0d02533c66db2ab8
+Source: github
+Version: 0.1.0.900
+Hash: b007549543d69b72938cd5884593db72
 Requires: jsonlite, shiny
+GithubRepo: rintrojs
+GithubUsername: carlganz
+GithubRef: master
+GithubSha1: 7d6bf2d662a16325618910506ff669281ce10d98
 
 Package: rstudioapi
 Source: CRAN

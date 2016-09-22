@@ -4,6 +4,12 @@ library(shiny)
 # Define UI for application that draws a histogram
 ui <- shinyUI(fluidPage(
   introjsUI(),
+  tags$style(HTML(
+    ".newClass {
+      min-width: 800px;
+      max-width: 800px;
+    }"
+  )),
   
   # Application title
   introBox(
@@ -71,8 +77,14 @@ server <- shinyServer(function(input, output, session) {
                introjs(session, options = list("nextLabel"="Onwards and Upwards",
                                                "prevLabel"="Did you forget something?",
                                                "skipLabel"="Don't be a quitter",
-                                               "tooltipClass" = ),
-                       events = list("oncomplete"='alert("Glad that is over")'))
+                                               "tooltipClass" = "newClass"),
+                       events = list("oncomplete"='alert("Glad that is over")',
+                                     "onbeforechange"='
+                                     if (targetElement.getAttribute("data-step")==="1") {
+                                      $(".newClass").css("max-width", "800px").css("min-width","800px");  
+                                     } else {
+                                      $(".newClass").css("max-width", "500px").css("min-width","500px");
+                                     }'))
   )
 })
 
